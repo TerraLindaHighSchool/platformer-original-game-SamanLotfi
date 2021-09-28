@@ -15,7 +15,10 @@ public class Level1 extends World
     public Level1()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
-        super(1200, 800, 1, false);
+
+        super(1200, 800, 1, false); 
+        setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class,
+            Door.class, HUD.class);
         prepare();
     }
     
@@ -25,13 +28,13 @@ public class Level1 extends World
      */
     private void prepare()
     {
-        setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class,
-            Door.class, HUD.class);
+        Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
+        addObject(player,55,692);
         Door door = new Door();
-        addObject(door,1171,44);
-        Player player = new Player();
-        addObject(player,96,750);
-        Gem gem = new Gem();
-        addObject(gem,890,488);
+        addObject(door,1150,59);
+
     }
+    
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
 }
