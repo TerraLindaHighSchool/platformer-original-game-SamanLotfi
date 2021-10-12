@@ -67,12 +67,9 @@ public class Level1 extends World
         removeObject(floor);
 
         addObject(floor,600,800);
-        player.setLocation(28,747);
+        player.setLocation(49,750);
     }
     
     private final float GRAVITY = 0.0667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
 }
-
-
-

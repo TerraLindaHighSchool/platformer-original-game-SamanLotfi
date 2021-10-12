@@ -24,20 +24,9 @@ public class Player extends Actor
     private final float GRAVITY;
     private final Class NEXT_LEVEL;
     private final GreenfootSound MUSIC;
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
+    private final int MAX_POWERUP;
+    private final int MAX_HEALTH;
     
-       
-        animator();
-        fall();
-        onCollision();
-    
-
-    }
     public Player(int speed, float jumpForce, float gravity, int maxHealth, int maxPowerup, Class nextLevel, GreenfootSound music)
     {
         WALK_ANIMATION = new GreenfootImage[]
@@ -48,14 +37,31 @@ public class Player extends Actor
             new GreenfootImage("walk4.png"),
             new GreenfootImage("walk5.png"),
         };
+        
         STANDING_IMAGE = new GreenfootImage("standing.png");
         JUMP_FORCE = jumpForce;
         GRAVITY = gravity;
         NEXT_LEVEL = nextLevel;
+        MAX_POWERUP = maxPowerup;
+        MAX_HEALTH = maxHealth;
         MUSIC = music;
         this.speed = speed;
+    }
+    
+    /**
+     * Act - do whatever the Player wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        walk();
+        jump();
+        fall();
+        onCollision();
+    
 
     }
+    
     private void animator()
     {
         if(frame % (15 - 2 * speed) == 0)
@@ -146,18 +152,7 @@ public class Player extends Actor
         }
     }
     
-    private void checkKeyPress()
-    {
-        if(Greenfoot.isKeyDown("D"))
-        {
-            setLocation(getX() +4,getY());
-        }
-    
-        if(Greenfoot.isKeyDown("A"))
-        {
-            setLocation(getX() -4,getY());
-        }
-    }
+   
         private void walk()
     {
         if(isWalking)
@@ -199,4 +194,12 @@ public class Player extends Actor
             isWalking = false;
         }
     } 
-}   
+}
+        
+        
+        
+        
+        
+        
+
+
