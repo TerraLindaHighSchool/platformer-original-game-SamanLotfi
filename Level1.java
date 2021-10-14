@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");  
+    
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -19,6 +22,11 @@ public class Level1 extends World
         super(1200, 800, 1, false); 
         
         prepare();
+    }
+    
+    public void act()
+    {
+        spawn();    
     }
     
     /**
@@ -70,6 +78,11 @@ public class Level1 extends World
         player.setLocation(49,750);
     }
     
-    private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private void spawn()
+    {
+        if(Math.random() < 0.0025)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+    }
 }
