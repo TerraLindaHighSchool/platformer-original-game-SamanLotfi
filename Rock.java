@@ -17,12 +17,16 @@ public class Rock extends Obstacle
 
     public void act()
     {
-
+        fall();
     }
 
     protected void fall()
     { 
-
+        if(!isOnGround())
+        {
+            yVelocity += GRAVITY;
+            setLocation(getX(), getY() + (int) yVelocity);
+        }
     }
 
 }

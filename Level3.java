@@ -6,9 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Level2 extends World
+public class Level3 extends World
 {
-    public Level2()
+    /**
+     * Constructor for objects of class BrickWorld.
+     * 
+     */
+    public Level3()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
 
@@ -17,6 +21,18 @@ public class Level2 extends World
         prepare();
     }
     
+    public void act()
+    {
+        spawn();
+    }
+    
+    public void spawn()
+    {
+        if(Math.random() < 0.005)
+        {
+            addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -28,20 +44,27 @@ public class Level2 extends World
 
         Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level3.class, MUSIC);
         addObject(player,55,692);
-        Door door = new Door();
-        addObject(door,1150,59);
-
+        
+        Gem Gem = new Gem();
+        addObject(Gem,1150,70);
+        addObject(new Bomb(GRAVITY), 650, 560);
+        
+        SmBrickWall smBrickWall = new SmBrickWall();
+        addObject(smBrickWall,150,500);
+        SmBrickWall smBrickWall2 = new SmBrickWall();
+        addObject(smBrickWall2,1000,450);
+        SmBrickWall smBrickWall3 = new SmBrickWall();
+        addObject(smBrickWall3,1130,105);
+        SmBrickWall smBrickWall4 = new SmBrickWall();
+        addObject(smBrickWall4,500,400);
+        
         BrickWall brickWall = new BrickWall();
-        addObject(brickWall,565,501);
+        addObject(brickWall,700,700);
         BrickWall brickWall2 = new BrickWall();
-        addObject(brickWall2,958,122);
-        BrickWall brickWall3 = new BrickWall();
-        addObject(brickWall3,329,261);
-        brickWall.setLocation(318,606);
-        BrickWall brickWall4 = new BrickWall();
-        addObject(brickWall4,954,411);
+        addObject(brickWall2,1250,280);
+        
         Floor floor = new Floor();
-        addObject(floor,595,779);
+        addObject(floor,800,779);
         Floor floor2 = new Floor();
         addObject(floor2,896,649);
         floor2.setLocation(916,649);

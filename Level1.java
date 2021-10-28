@@ -9,7 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level1 extends World
 {
     private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");  
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
     
     /**
      * Constructor for objects of class BrickWorld.
@@ -73,9 +78,24 @@ public class Level1 extends World
         player.setLocation(68,661);
         floor.setLocation(102,729);
         removeObject(floor);
-
+        addObject(new Bomb(GRAVITY), 435, 220);
         addObject(floor,600,800);
         player.setLocation(49,750);
+
+        removeObject(brickWall3);
+        removeObject(brickWall4);
+        removeObject(brickWall);
+        removeObject(gem);
+        SmBrickWall smBrickWall = new SmBrickWall();
+        addObject(smBrickWall,961,676);
+        VerySmBrickWall verySmBrickWall = new VerySmBrickWall();
+        addObject(verySmBrickWall,565,546);
+        VerySmBrickWall verySmBrickWall2 = new VerySmBrickWall();
+        addObject(verySmBrickWall2,944,391);
+        SmBrickWall smBrickWall2 = new SmBrickWall();
+        addObject(smBrickWall2,518,267);
+        VerySmBrickWall verySmBrickWall3 = new VerySmBrickWall();
+        addObject(verySmBrickWall3,120,376);
     }
     
     private void spawn()
