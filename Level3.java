@@ -8,10 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level3 extends World
 {
-    /**
-     * Constructor for objects of class BrickWorld.
-     * 
-     */
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
+    
     public Level3()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
@@ -84,7 +88,4 @@ public class Level3 extends World
         addObject(floor,600,800);
         player.setLocation(49,750);
     }
-    
-    private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
 }

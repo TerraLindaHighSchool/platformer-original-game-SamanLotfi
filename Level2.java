@@ -8,6 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2 extends World
 {
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
+    
     public Level2()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
@@ -31,15 +39,16 @@ public class Level2 extends World
         Door door = new Door();
         addObject(door,1150,59);
 
-        BrickWall brickWall = new BrickWall();
-        addObject(brickWall,565,501);
-        BrickWall brickWall2 = new BrickWall();
-        addObject(brickWall2,958,122);
-        BrickWall brickWall3 = new BrickWall();
-        addObject(brickWall3,329,261);
-        brickWall.setLocation(318,606);
-        BrickWall brickWall4 = new BrickWall();
-        addObject(brickWall4,954,411);
+        SmBrickWall smbrickWall = new SmBrickWall();
+        addObject(smbrickWall,318,606);
+        SmBrickWall smbrickWall2 = new SmBrickWall();
+        addObject(smbrickWall2,1050,122);
+        SmBrickWall smbrickWall3 = new SmBrickWall();
+        addObject(smbrickWall3,150,400);
+        SmBrickWall smbrickWall4 = new SmBrickWall();
+        addObject(smbrickWall4,700,250);
+        Bomb bomb = new Bomb(GRAVITY);
+        addObject(bomb,700,220);
         Floor floor = new Floor();
         addObject(floor,595,779);
         Floor floor2 = new Floor();
@@ -61,7 +70,4 @@ public class Level2 extends World
         addObject(floor,600,800);
         player.setLocation(49,750);
     }
-    
-    private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
 }
