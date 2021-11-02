@@ -25,7 +25,7 @@ public class Player extends Actor
     private final Class NEXT_LEVEL;
     private final GreenfootSound MUSIC;
     private final int MAX_POWERUP;
-
+    
     public Player(int speed, float jumpForce, float gravity, int maxHealth, 
     int maxPowerup, Class nextLevel, GreenfootSound music)
     {
@@ -60,7 +60,7 @@ public class Player extends Actor
         fall();
         onCollision();
         gameOver();
-
+        
     }
 
     private void animator()
@@ -178,6 +178,7 @@ public class Player extends Actor
         
         if(isTouching(Obstacle.class))
         {
+            Greenfoot.playSound("explosionSmall.wav");
             removeTouching(Obstacle.class);
             getWorld().removeObject(health[healthCount - 1]);
             healthCount--;
@@ -187,6 +188,13 @@ public class Player extends Actor
         {
             yVelocity = -1;
             fall();
+        }
+    
+        if(isTouching(Collectable.class) && healthCount < 3)
+        {
+            healthCount++;
+            getWorld().addObject(health[2],114,36);
+            removeTouching(Collectable.class);
         }
     }
 
@@ -204,6 +212,11 @@ public class Player extends Actor
 
         if(Greenfoot.isKeyDown("right"))
         {
+            if(!MUSIC.isPlaying())
+            {
+                MUSIC.playLoop();
+            }
+            
             if(isFacingLeft)
             {
                 mirrorImages();

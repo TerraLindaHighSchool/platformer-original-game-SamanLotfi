@@ -69,5 +69,21 @@ public class Level2 extends World
 
         addObject(floor,600,800);
         player.setLocation(49,750);
+        bomb.setLocation(696,193);
+        VerySmBrickWall verySmBrickWall = new VerySmBrickWall();
+        addObject(verySmBrickWall,491,172);
+        VerySmBrickWall verySmBrickWall2 = new VerySmBrickWall();
+        addObject(verySmBrickWall2,331,136);
+        VerySmBrickWall verySmBrickWall3 = new VerySmBrickWall();
+        addObject(verySmBrickWall3,171,100);
+        VerySmBrickWall verySmBrickWall4 = new VerySmBrickWall();
+        addObject(verySmBrickWall4,680,514);
+        VerySmBrickWall verySmBrickWall5 = new VerySmBrickWall();
+        addObject(verySmBrickWall5,1024,392);
+        Bomb bomb2 = new Bomb(0.0667f);
+        addObject(bomb2,680,464);
+        door.setLocation(1140,68);
+        Cookie cookie = new Cookie();
+        addObject(cookie,106,358);
     }
 }

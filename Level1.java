@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level1 extends World
 {
     private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("heist.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 6f;
     private final int MAX_HEALTH = 3;
@@ -96,6 +96,14 @@ public class Level1 extends World
         addObject(smBrickWall2,518,267);
         VerySmBrickWall verySmBrickWall3 = new VerySmBrickWall();
         addObject(verySmBrickWall3,120,376);
+        Cookie cookie = new Cookie();
+        addObject(cookie,945,347);
+        Bomb bomb2 = new Bomb(0.0667f);
+        addObject(bomb2,526,496);
+        Cookie cookie2 = new Cookie();
+        addObject(cookie2,118,334);
+        Bomb bomb3 = new Bomb(0.0667f);
+        addObject(bomb3,993,628);
     }
     
     private void spawn()
